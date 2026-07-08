@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Партнёры — Cyber Group</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* ===== СТРАНИЦА ПАРТНЁРОВ ===== */
+        .partners-page {
+            padding: 60px 0 80px;
+            background: #f8f9fa;
+        }
+
+        .partners-page .section-title {
+            margin-bottom: 10px;
+        }
+
+        .partners-page .section-subtitle {
+            margin-bottom: 50px;
+        }
+
+        /* ===== СЕТКА ПАРТНЁРОВ ===== */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .partner-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px 25px 25px;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: #0077be;
+        }
+
+        .partner-card .partner-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .partner-card .partner-logo img {
+            max-height: 70px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .partner-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 8px;
+        }
+
+        .partner-card .partner-description {
+            font-size: 0.9rem;
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            min-height: 65px;
+        }
+
+        .partner-card .partner-link {
+            display: inline-block;
+            color: #0077be;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .partner-card .partner-link:hover {
+            margin-left: 5px;
+        }
+
+        .partner-card .partner-link i {
+            font-size: 0.75rem;
+        }
+
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 992px) {
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .partners-page {
+                padding: 40px 0 60px;
+            }
+
+            .partners-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .partner-card {
+                padding: 25px 20px;
+            }
+
+            .partner-card .partner-logo {
+                height: 65px;
+            }
+
+            .partner-card .partner-logo img {
+                max-height: 55px;
+            }
+
+            .partner-card .partner-description {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-card .partner-logo {
+                height: 55px;
+            }
+
+            .partner-card .partner-logo img {
+                max-height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== НАВИГАЦИЯ ====== -->
+    <header class="header">
+        <nav class="container nav">
+            <a href="index.html" class="logo">
+                <img src="logotipblue.png" alt="Cyber Group" style="height: 45px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="products.html">Решения</a></li>
+                <li><a href="partners.html" class="active">Партнёры</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+            <a href="index.html#contact" class="btn-primary">Связаться</a>
+            <button class="menu-toggle" aria-label="Меню">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ====== ПАРТНЁРЫ ====== -->
+    <section class="partners-page" id="partners">
+        <div class="container">
+            <span class="section-tag" style="text-align: center; display: block;">Надёжные партнёры</span>
+            <h2 class="section-title">Ведущие производители <span class="highlight">решений ИБ</span></h2>
+            <p class="section-subtitle">Мы сотрудничаем с лучшими вендорами для обеспечения максимальной защиты вашего бизнеса</p>
+
+            <div class="partners-grid">
+                <!-- Партнёр 1: Базальт СПО -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="basealtSPO.png" alt="Базальт СПО" onerror="this.style.display='none'">
+                    </div>
+                    <h4>Базальт СПО</h4>
+                    <div class="partner-description">
+                        Разработчик российских операционных систем «Альт». Опыт разработки ПО — более 20 лет. В штате более 120 разработчиков.
+                    </div>
+                    <a href="https://www.basealt.ru/" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Партнёр 2: Axoft -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="axoft.png" alt="Axoft" onerror="this.style.display='none'">
+                    </div>
+                    <h4>Axoft</h4>
+                    <div class="partner-description">
+                        Центр экспертизы и дистрибуции цифровых технологий. Продукты более 1000 производителей. Офисы в 44 городах России и СНГ.
+                    </div>
+                    <a href="https://axoftglobal.ru/" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Партнёр 3: Доктор Веб -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="DrWEB.png" alt="Доктор Веб" onerror="this.style.display='none'">
+                    </div>
+                    <h4>Доктор Веб</h4>
+                    <div class="partner-description">
+                        Российский производитель антивирусных средств защиты информации. Продукты разрабатываются с 1992 года. Ключевой игрок на рынке ИБ.
+                    </div>
+                    <a href="https://www.drweb.ru/" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Партнёр 4: Код Безопасности -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="kodbez.png" alt="Код Безопасности" onerror="this.style.display='none'">
+                    </div>
+                    <h4>Код Безопасности</h4>
+                    <div class="partner-description">
+                        Системообразующая российская IT-компания. Разработчик средств защиты информации. Решения используются в Минобороны, ФНС, РЖД и других.
+                    </div>
+                    <a href="https://www.securitycode.ru/" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Партнёр 5: ГК Конфидент -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="Konfident.png" alt="ГК Конфидент" onerror="this.style.display='none'">
+                    </div>
+                    <h4>ГК «Конфидент»</h4>
+                    <div class="partner-description">
+                        Лидер российского рынка в области информационной безопасности и инженерного обеспечения зданий. Одна из первых негосударственных организаций.
+                    </div>
+                    <a href="https://www.confident.ru/" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Партнёр 6: Лаборатория Касперского -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="kasperski.png" alt="Лаборатория Касперского" onerror="this.style.display='none'">
+                    </div>
+                    <h4>Лаборатория Касперского</h4>
+                    <div class="partner-description">
+                        Международная компания в сфере информационной безопасности более 25 лет. От антивирусов до всесторонней защиты для бизнеса.
+                    </div>
+                    <a href="https://www.kaspersky.ru/" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Партнёр 7: ИнфоТеКС -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="Infotecs.png" alt="ИнфоТеКС" onerror="this.style.display='none'">
+                    </div>
+                    <h4>ИнфоТеКС</h4>
+                    <div class="partner-description">
+                        Ведущий отечественный разработчик высокотехнологичных программных и программно-аппаратных средств защиты информации.
+                    </div>
+                    <a href="https://infotecs.ru/" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Партнёр 8: ARinteg -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="ARinteg.png" alt="ARinteg" onerror="this.style.display='none'">
+                    </div>
+                    <h4>ARinteg</h4>
+                    <div class="partner-description">
+                        Ведущий игрок на российском интеграционном рынке. Полный комплекс услуг в области защиты информационных ресурсов и IT-сервисов.
+                    </div>
+                    <a href="https://asv.arinteg.ru" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Партнёр 9: НПО Эшелон -->
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="Ashelon.png" alt="НПО Эшелон" onerror="this.style.display='none'">
+                    </div>
+                    <h4>НПО «Эшелон»</h4>
+                    <div class="partner-description">
+                        Профессионалы в области информационной безопасности, технической защиты и противодействия террористической деятельности. Опыт в ведущих компаниях.
+                    </div>
+                    <a href="https://npo-echelon.ru/" target="_blank" class="partner-link">На сайт партнёра <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ФУТЕР ====== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <a href="index.html" class="logo">
+					<img src="logotip2.png" alt="Cyber Group" style="height: 45px;">
+				</a>
+                <p class="footer-copy">© 2026 Все права защищены.</p>
+                <p class="footer-license">Лицензии ФСТЭК и ФСБ России</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="products.html">Решения</a></li>
+                    <li><a href="partners.html">Партнёры</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:88632703003">8 (863) 270-30-03</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@cbgp.ru">info@cbgp.ru</a></p>
+				<p><i class="fas fa-envelope"></i> <a href="mailto:support@cbgp.ru">support@cbgp.ru</a></p>
+				<p><i class="fas fa-envelope"></i> <a href="mailto:accountant@cbgp.ru">accountant@cbgp.ru</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> г. Ростов-на-Дону, пр-кт Сельмаш, 90а/17б</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

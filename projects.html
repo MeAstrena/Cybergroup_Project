@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты — Cyber Group</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* ===== СТРАНИЦА ПРОЕКТОВ ===== */
+        .projects-page {
+            padding: 60px 0 80px;
+            background: #f8f9fa;
+        }
+
+        .projects-page .section-title {
+            margin-bottom: 10px;
+        }
+
+        .projects-page .section-subtitle {
+            margin-bottom: 50px;
+        }
+
+        /* ===== БЛОК ПРОЕКТОВ ===== */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .project-item {
+            background: #fff;
+            padding: 18px 25px;
+            border-radius: 12px;
+            border-left: 4px solid #0077be;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .project-item .project-icon {
+            color: #0077be;
+            font-size: 1.2rem;
+            width: 30px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .project-item .project-text {
+            font-weight: 500;
+            color: #2d3436;
+            font-size: 1rem;
+        }
+
+        .project-item .project-text strong {
+            color: #0077be;
+        }
+
+        /* ===== КЛИЕНТЫ ===== */
+        .clients-section {
+            margin-top: 20px;
+        }
+
+        .clients-section .section-subtitle {
+            margin-bottom: 40px;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .client-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px 20px 20px;
+            border: 1px solid #eee;
+            transition: none;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .client-card .client-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .client-card .client-logo img {
+            max-height: 100px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .client-card .client-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2d3436;
+            line-height: 1.4;
+        }
+
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 992px) {
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-page {
+                padding: 40px 0 60px;
+            }
+
+            .projects-list {
+                gap: 12px;
+            }
+
+            .project-item {
+                padding: 14px 18px;
+                font-size: 0.95rem;
+            }
+
+            .project-item .project-text {
+                font-size: 0.9rem;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .client-card {
+                padding: 20px;
+            }
+
+            .client-card .client-logo {
+                height: 65px;
+            }
+
+            .client-card .client-logo img {
+                max-height: 55px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-item {
+                padding: 12px 15px;
+            }
+
+            .project-item .project-text {
+                font-size: 0.85rem;
+            }
+
+            .client-card .client-logo {
+                height: 55px;
+            }
+
+            .client-card .client-logo img {
+                max-height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== НАВИГАЦИЯ ====== -->
+    <header class="header">
+        <nav class="container nav">
+            <a href="index.html" class="logo">
+                <img src="logotipblue.png" alt="Cyber Group" style="height: 45px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="products.html">Решения</a></li>
+                <li><a href="partners.html">Партнёры</a></li>
+                <li><a href="projects.html" class="active">Проекты</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+            <a href="index.html#contact" class="btn-primary">Связаться</a>
+            <button class="menu-toggle" aria-label="Меню">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ====== ПРОЕКТЫ ====== -->
+    <section class="projects-page" id="projects">
+        <div class="container">
+            <span class="section-tag" style="text-align: center; display: block;">Наши работы</span>
+            <h2 class="section-title">Реализованные <span class="highlight">проекты</span></h2>
+            <p class="section-subtitle">Мы успешно завершили множество проектов в различных отраслях</p>
+
+            <!-- ===== СПИСОК ПРОЕКТОВ ===== -->
+            <div class="projects-list">
+                <div class="project-item">
+                    <span class="project-icon"><i class="fas fa-hospital"></i></span>
+                    <span class="project-text"><strong>Аттестация медицинских организаций</strong> по требованиям ТФОМС</span>
+                </div>
+                <div class="project-item">
+                    <span class="project-icon"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="project-text"><strong>Аттестация ИС для защиты данных</strong>, передаваемых по каналу ЕГЭ</span>
+                </div>
+                <div class="project-item">
+                    <span class="project-icon"><i class="fas fa-child"></i></span>
+                    <span class="project-text"><strong>Аттестация ИС «Электронный детский сад»</strong></span>
+                </div>
+                <div class="project-item">
+                    <span class="project-icon"><i class="fas fa-database"></i></span>
+                    <span class="project-text"><strong>Подключение к автоматизированной информационной системе «Контингент»</strong></span>
+                </div>
+                <div class="project-item">
+                    <span class="project-icon"><i class="fas fa-laptop"></i></span>
+                    <span class="project-text"><strong>Аттестация АРМ информационной системы «АРМ ФИС ФРДО»</strong></span>
+                </div>
+            </div>
+
+            <!-- ===== КЛИЕНТЫ ===== -->
+            <div class="clients-section">
+                <span class="section-tag" style="text-align: center; display: block;">Довольные клиенты</span>
+                <h2 class="section-title">Наши <span class="highlight">клиенты</span></h2>
+                <p class="section-subtitle">С нами сотрудничают ведущие организации Ростовской области и России</p>
+
+                <div class="clients-grid">
+                    <!-- Клиент 1 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr1.png" alt="Центральная районная больница" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">ГБУ РО «Центральная районная больница» в Кашарском районе</div>
+                    </div>
+
+                    <!-- Клиент 2 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr2.png" alt="Медицинский центр Гиппократ" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">ООО «МЦ „Гиппократ 21 век“»</div>
+                    </div>
+
+                    <!-- Клиент 3 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr3.png" alt="Управление образования Аксайского района" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">Управление образования администрации Аксайского района</div>
+                    </div>
+
+                    <!-- Клиент 4 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr4.png" alt="РГУПС" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">ФГБОУ ВО «Ростовский государственный университет путей сообщения»</div>
+                    </div>
+
+                    <!-- Клиент 5 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr5.png" alt="Отдел образования Песчанокопского района" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">Отдел образования администрации Песчанокопского района</div>
+                    </div>
+
+                    <!-- Клиент 6 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr6.png" alt="Гимназия Юнона" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">МБОУ «ИТ Гимназия „Юнона“ г. Волгодонска».</div>
+                    </div>
+
+                    <!-- Клиент 7 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr7.png" alt="Донской ГАУ" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">ФГБОУ ВО «Донской государственный аграрный университет»</div>
+                    </div>
+
+                    <!-- Клиент 8 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr8.png" alt="Гимназия Свет знаний" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">ЧОУ Гимназия «ОР АВНЕР — Свет знаний»</div>
+                    </div>
+
+                    <!-- Клиент 9 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr9.png" alt="Биомед Плюс" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">ООО ЛДЦ «Биомед Плюс»</div>
+                    </div>
+
+                    <!-- Клиент 10 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr10.png" alt="Международная школа Алла Прима" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">ЧОУ «Международная школа Алла Прима»</div>
+                    </div>
+
+                    <!-- Клиент 11 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr11.png" alt="Управление образования Миллеровского района" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">Управление образования Миллеровского района Ростовской области</div>
+                    </div>
+
+                    <!-- Клиент 12 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr12.png" alt="Отдел образования Октябрьского района" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">Отдел образования Октябрьского района Ростовской области</div>
+                    </div>
+
+                    <!-- Клиент 13 -->
+                    <div class="client-card">
+                        <div class="client-logo">
+                            <img src="pr13.png" alt="Управление образования Волгодонска" onerror="this.style.display='none'">
+                        </div>
+                        <div class="client-name">Управление образования города Волгодонска</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ФУТЕР ====== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <a href="index.html" class="logo">
+                    <img src="logotip2.png" alt="Cyber Group" style="height: 45px;">
+                </a>
+                <p class="footer-copy">© 2026 Все права защищены.</p>
+                <p class="footer-license">Лицензии ФСТЭК и ФСБ России</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="products.html">Решения</a></li>
+                    <li><a href="partners.html">Партнёры</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:88632703003">8 (863) 270-30-03</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@cbgp.ru">info@cbgp.ru</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:support@cbgp.ru">support@cbgp.ru</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:accountant@cbgp.ru">accountant@cbgp.ru</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> г. Ростов-на-Дону, пр-кт Сельмаш, 90а/17б</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

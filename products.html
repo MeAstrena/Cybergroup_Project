@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решения — Cyber Group</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* ===== СТРАНИЦА РЕШЕНИЙ ===== */
+        .products-page {
+            padding: 60px 0 80px;
+            background: #f8f9fa;
+        }
+
+        .products-page .section-title {
+            margin-bottom: 10px;
+        }
+
+        .products-page .section-subtitle {
+            margin-bottom: 50px;
+        }
+
+        /* ===== КАТЕГОРИИ ===== */
+        .category-block {
+            margin-bottom: 60px;
+        }
+
+        .category-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #0077be;
+            display: inline-block;
+        }
+
+        .category-title i {
+            color: #0077be;
+            margin-right: 12px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        /* ===== КАРТОЧКА ПРОДУКТА ===== */
+        .product-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px 20px 20px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: #0077be;
+        }
+
+        .product-card .product-image {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .product-card .product-image img {
+            max-height: 60px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .product-card .product-image .placeholder-icon {
+            font-size: 2.5rem;
+            color: #0077be;
+        }
+
+        .product-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 6px;
+        }
+
+        .product-card .product-tag {
+            display: inline-block;
+            background: rgba(0, 119, 190, 0.08);
+            color: #0077be;
+            padding: 2px 12px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .product-card .btn-buy {
+            display: inline-block;
+            background: #0077be;
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 5px;
+        }
+
+        .product-card .btn-buy:hover {
+            background: #005f99;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 119, 190, 0.3);
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО С ФОРМОЙ ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-window {
+            background: #fff;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            padding: 45px 40px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-window h2 {
+            font-size: 1.8rem;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .modal-window .modal-subtitle {
+            color: #636e72;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .modal-window .form-group {
+            margin-bottom: 20px;
+        }
+
+        .modal-window .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #2d3436;
+            margin-bottom: 6px;
+        }
+
+        .modal-window .form-group label .required {
+            color: #e74c3c;
+        }
+
+        .modal-window .form-group input,
+        .modal-window .form-group select,
+        .modal-window .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e8ecf0;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border 0.3s;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .modal-window .form-group input:focus,
+        .modal-window .form-group select:focus,
+        .modal-window .form-group textarea:focus {
+            outline: none;
+            border-color: #0077be;
+            background: #fff;
+        }
+
+        .modal-window .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .modal-window .form-group .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .modal-window .form-group .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            accent-color: #0077be;
+            cursor: pointer;
+        }
+
+        .modal-window .form-group .checkbox-group label {
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #555;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .modal-window .form-group .checkbox-group label .required {
+            color: #e74c3c;
+        }
+
+        .modal-window .btn-submit {
+            background: #0077be;
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .modal-window .btn-submit:hover {
+            background: #005f99;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 119, 190, 0.3);
+        }
+
+        .modal-window .form-error {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .modal-window .form-error.show {
+            display: block;
+        }
+
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 992px) {
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .products-page {
+                padding: 40px 0 60px;
+            }
+
+            .category-title {
+                font-size: 1.3rem;
+            }
+
+            .product-card {
+                padding: 20px 15px;
+            }
+
+            .product-card .product-image {
+                height: 55px;
+            }
+
+            .product-card .product-image img {
+                max-height: 45px;
+            }
+
+            .product-card .btn-buy {
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
+
+            .modal-window {
+                padding: 30px 20px;
+            }
+
+            .modal-window h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .product-card h4 {
+                font-size: 0.85rem;
+            }
+
+            .product-card .product-image {
+                height: 45px;
+            }
+
+            .product-card .product-image img {
+                max-height: 35px;
+            }
+
+            .product-card .btn-buy {
+                padding: 6px 16px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== НАВИГАЦИЯ ====== -->
+    <header class="header">
+        <nav class="container nav">
+            <a href="index.html" class="logo">
+                <img src="logotipblue.png" alt="Cyber Group" style="height: 45px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="products.html" class="active">Решения</a></li>
+                <li><a href="partners.html">Партнёры</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+            <a href="index.html#contact" class="btn-primary">Связаться</a>
+            <button class="menu-toggle" aria-label="Меню">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ====== РЕШЕНИЯ ====== -->
+    <section class="products-page" id="products">
+        <div class="container">
+            <span class="section-tag" style="text-align: center; display: block;">Наши решения</span>
+            <h2 class="section-title">Сертифицированные <span class="highlight">продукты</span></h2>
+            <p class="section-subtitle">Ведущие производители средств защиты информации и программного обеспечения</p>
+
+            <!-- ===== КАТЕГОРИЯ 1: АНТИВИРУСНАЯ ЗАЩИТА ===== -->
+            <div class="category-block">
+                <h3 class="category-title"><i class="fas fa-shield-virus"></i> Антивирусная защита</h3>
+                <div class="category-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="kasperski.png" alt="Продукты Kaspersky" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-shield-halved"></i></div>
+                        </div>
+                        <h4>Продукты Kaspersky</h4>
+                        <span class="product-tag">Антивирус</span>
+                        <button class="btn-buy" onclick="openOrderForm('Антивирусные решения Лаборатории Касперского')">Купить</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="DrWEB.png" alt="Продукты Dr.Web" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-bug"></i></div>
+                        </div>
+                        <h4>Продукты Dr.Web</h4>
+                        <span class="product-tag">Антивирус</span>
+                        <button class="btn-buy" onclick="openOrderForm('Антивирусные решения Dr. Web')">Купить</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== КАТЕГОРИЯ 2: СРЕДСТВА ЗАЩИТЫ ИНФОРМАЦИИ ===== -->
+            <div class="category-block">
+                <h3 class="category-title"><i class="fas fa-lock"></i> Средства защиты информации</h3>
+                <div class="category-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="kodbez.png" alt="Линейка решений Secret Net" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-network-wired"></i></div>
+                        </div>
+                        <h4>Линейка решений Secret Net</h4>
+                        <span class="product-tag">СЗИ</span>
+                        <button class="btn-buy" onclick="openOrderForm('СЗИ Secret Net')">Купить</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="dallas.png" alt="Линейка решений Dallas Lock" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-door-open"></i></div>
+                        </div>
+                        <h4>Линейка решений Dallas Lock</h4>
+                        <span class="product-tag">СЗИ</span>
+                        <button class="btn-buy" onclick="openOrderForm('СЗИ Dallas Lock')">Купить</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== КАТЕГОРИЯ 3: СРЕДСТВА КРИПТОГРАФИЧЕСКОЙ ЗАЩИТЫ ===== -->
+            <div class="category-block">
+                <h3 class="category-title"><i class="fas fa-key"></i> Средства криптографической защиты информации</h3>
+                <div class="category-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="Infotecs.png" alt="Продукция ViPNet" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-shield"></i></div>
+                        </div>
+                        <h4>Продукция ViPNet</h4>
+                        <span class="product-tag">Крипто</span>
+                        <button class="btn-buy" onclick="openOrderForm('СКЗИ VipNet')">Купить</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="kodbez.png" alt="Континент АП" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-globe"></i></div>
+                        </div>
+                        <h4>Континент АП</h4>
+                        <span class="product-tag">Крипто</span>
+                        <button class="btn-buy" onclick="openOrderForm('СКЗИ Континент')">Купить</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="cryptopro.png" alt="Крипто Про" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-certificate"></i></div>
+                        </div>
+                        <h4>Крипто Про</h4>
+                        <span class="product-tag">Крипто</span>
+                        <button class="btn-buy" onclick="openOrderForm('Решения КриптоПро')">Купить</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== КАТЕГОРИЯ 4: ОПЕРАЦИОННЫЕ СИСТЕМЫ LINUX ===== -->
+            <div class="category-block">
+                <h3 class="category-title"><i class="fab fa-linux"></i> Операционные системы семейства Linux</h3>
+                <div class="category-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="basealtSPO.png" alt="Base Alt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fab fa-linux"></i></div>
+                        </div>
+                        <h4>Base Alt</h4>
+                        <span class="product-tag">ОС Linux</span>
+                        <button class="btn-buy" onclick="openOrderForm('ОС Linux')">Купить</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="astralinux.png" alt="Astra Linux" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fas fa-rocket"></i></div>
+                        </div>
+                        <h4>Astra Linux</h4>
+                        <span class="product-tag">ОС Linux</span>
+                        <button class="btn-buy" onclick="openOrderForm('ОС Linux')">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== МОДАЛЬНОЕ ОКНО С ФОРМОЙ ЗАКАЗА ====== -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeOrderForm()">&times;</button>
+            <h2>Форма заказа</h2>
+            <p class="modal-subtitle">Заполните форму, и мы свяжемся с вами для оформления заказа</p>
+
+            <form id="orderForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>Ваше имя <span class="required">*</span></label>
+                    <input type="text" id="userName" placeholder="Иванов Иван Иванович" required>
+                    <div class="form-error" id="userNameError">Пожалуйста, введите ваше имя</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ваш телефон <span class="required">*</span></label>
+                    <input type="tel" id="userPhone" placeholder="+7 (___)-___-__-__" required>
+                    <div class="form-error" id="userPhoneError">Пожалуйста, введите ваш телефон</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ваш e-mail <span class="required">*</span></label>
+                    <input type="email" id="userEmail" placeholder="info@cbgp.ru" required>
+                    <div class="form-error" id="userEmailError">Пожалуйста, введите корректный e-mail</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Выберите продукт <span class="required">*</span></label>
+                    <select id="userProduct" required>
+                        <option value="" disabled selected>— Выберите продукт —</option>
+                        <option value="Антивирусные решения Лаборатории Касперского">Антивирусные решения Лаборатории Касперского</option>
+                        <option value="Антивирусные решения Dr. Web">Антивирусные решения Dr. Web</option>
+                        <option value="СЗИ Secret Net">СЗИ Secret Net</option>
+                        <option value="СЗИ Dallas Lock">СЗИ Dallas Lock</option>
+                        <option value="СКЗИ VipNet">СКЗИ VipNet</option>
+                        <option value="СКЗИ Континент">СКЗИ Континент</option>
+                        <option value="Решения КриптоПро">Решения КриптоПро</option>
+                        <option value="ОС Linux">ОС Linux</option>
+                    </select>
+                    <div class="form-error" id="userProductError">Пожалуйста, выберите продукт</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Примечания и дополнительная информация (не обязательно)</label>
+                    <textarea id="userComment" placeholder="Дополнительные пожелания или комментарии..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="userConsent" required>
+                        <label for="userConsent">Я даю согласие на обработку моих персональных данных <span class="required">*</span></label>
+                    </div>
+                    <div class="form-error" id="userConsentError">Необходимо дать согласие на обработку персональных данных</div>
+                </div>
+
+                <button type="submit" class="btn-submit">Запросить</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====== ФУТЕР ====== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <a href="index.html" class="logo">
+					<img src="logotip2.png" alt="Cyber Group" style="height: 45px;">
+				</a>
+                <p class="footer-copy">© 2026 Все права защищены.</p>
+                <p class="footer-license">Лицензии ФСТЭК и ФСБ России</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="products.html">Решения</a></li>
+                    <li><a href="partners.html">Партнёры</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:88632703003">8 (863) 270-30-03</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@cbgp.ru">info@cbgp.ru</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:support@cbgp.ru">support@cbgp.ru</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:accountant@cbgp.ru">accountant@cbgp.ru</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> г. Ростов-на-Дону, пр-кт Сельмаш, 90а/17б</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- ====== СКРИПТ ДЛЯ ФОРМЫ ====== -->
+    <script>
+        // Открытие формы с предзаполненным продуктом
+        function openOrderForm(productName) {
+            document.getElementById('orderModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Если передан продукт, выбираем его в списке
+            if (productName) {
+                const select = document.getElementById('userProduct');
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === productName) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            
+            // Сбрасываем ошибки
+            document.querySelectorAll('.form-error').forEach(el => el.classList.remove('show'));
+        }
+
+        // Закрытие формы
+        function closeOrderForm() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Закрытие по клику на фон
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeOrderForm();
+            }
+        });
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeOrderForm();
+            }
+        });
+
+        // Валидация и отправка формы
+        function submitForm(event) {
+            event.preventDefault();
+            
+            let isValid = true;
+            
+            // Проверка имени
+            const name = document.getElementById('userName');
+            const nameError = document.getElementById('userNameError');
+            if (!name.value.trim()) {
+                nameError.classList.add('show');
+                isValid = false;
+            } else {
+                nameError.classList.remove('show');
+            }
+            
+            // Проверка телефона
+            const phone = document.getElementById('userPhone');
+            const phoneError = document.getElementById('userPhoneError');
+            if (!phone.value.trim()) {
+                phoneError.classList.add('show');
+                isValid = false;
+            } else {
+                phoneError.classList.remove('show');
+            }
+            
+            // Проверка email
+            const email = document.getElementById('userEmail');
+            const emailError = document.getElementById('userEmailError');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailPattern.test(email.value.trim())) {
+                emailError.classList.add('show');
+                isValid = false;
+            } else {
+                emailError.classList.remove('show');
+            }
+            
+            // Проверка выбора продукта
+            const product = document.getElementById('userProduct');
+            const productError = document.getElementById('userProductError');
+            if (!product.value) {
+                productError.classList.add('show');
+                isValid = false;
+            } else {
+                productError.classList.remove('show');
+            }
+            
+            // Проверка согласия
+            const consent = document.getElementById('userConsent');
+            const consentError = document.getElementById('userConsentError');
+            if (!consent.checked) {
+                consentError.classList.add('show');
+                isValid = false;
+            } else {
+                consentError.classList.remove('show');
+            }
+            
+            if (isValid) {
+                // Здесь можно добавить отправку формы на сервер
+                alert('Спасибо! Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.');
+                closeOrderForm();
+                document.getElementById('orderForm').reset();
+            }
+        }
+    </script>
+
+</body>
+</html>
