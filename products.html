@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        /* ===== СТРАНИЦА РЕШЕНИЙ ===== */
+        
         .products-page {
             padding: 60px 0 80px;
             background: #f8f9fa;
@@ -23,7 +23,7 @@
             margin-bottom: 50px;
         }
 
-        /* ===== КАТЕГОРИИ ===== */
+        
         .category-block {
             margin-bottom: 60px;
         }
@@ -53,7 +53,7 @@
             gap: 25px;
         }
 
-        /* ===== КАРТОЧКА ПРОДУКТА ===== */
+        
         .product-card {
             background: #fff;
             border-radius: 16px;
@@ -134,7 +134,7 @@
             box-shadow: 0 8px 25px rgba(0, 119, 190, 0.3);
         }
 
-        /* ===== МОДАЛЬНОЕ ОКНО С ФОРМОЙ ===== */
+        
         .modal-overlay {
             display: none;
             position: fixed;
@@ -306,7 +306,7 @@
             display: block;
         }
 
-        /* ===== АДАПТИВНОСТЬ ===== */
+        
         @media (max-width: 992px) {
             .category-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -380,7 +380,7 @@
 </head>
 <body>
 
-    <!-- ====== НАВИГАЦИЯ ====== -->
+    
     <header class="header">
         <nav class="container nav">
             <a href="index.html" class="logo">
@@ -401,14 +401,14 @@
         </nav>
     </header>
 
-    <!-- ====== РЕШЕНИЯ ====== -->
+    
     <section class="products-page" id="products">
         <div class="container">
             <span class="section-tag" style="text-align: center; display: block;">Наши решения</span>
             <h2 class="section-title">Сертифицированные <span class="highlight">продукты</span></h2>
             <p class="section-subtitle">Ведущие производители средств защиты информации и программного обеспечения</p>
 
-            <!-- ===== КАТЕГОРИЯ 1: АНТИВИРУСНАЯ ЗАЩИТА ===== -->
+            
             <div class="category-block">
                 <h3 class="category-title"><i class="fas fa-shield-virus"></i> Антивирусная защита</h3>
                 <div class="category-grid">
@@ -434,7 +434,7 @@
                 </div>
             </div>
 
-            <!-- ===== КАТЕГОРИЯ 2: СРЕДСТВА ЗАЩИТЫ ИНФОРМАЦИИ ===== -->
+            
             <div class="category-block">
                 <h3 class="category-title"><i class="fas fa-lock"></i> Средства защиты информации</h3>
                 <div class="category-grid">
@@ -460,7 +460,7 @@
                 </div>
             </div>
 
-            <!-- ===== КАТЕГОРИЯ 3: СРЕДСТВА КРИПТОГРАФИЧЕСКОЙ ЗАЩИТЫ ===== -->
+            
             <div class="category-block">
                 <h3 class="category-title"><i class="fas fa-key"></i> Средства криптографической защиты информации</h3>
                 <div class="category-grid">
@@ -496,7 +496,7 @@
                 </div>
             </div>
 
-            <!-- ===== КАТЕГОРИЯ 4: ОПЕРАЦИОННЫЕ СИСТЕМЫ LINUX ===== -->
+            
             <div class="category-block">
                 <h3 class="category-title"><i class="fab fa-linux"></i> Операционные системы семейства Linux</h3>
                 <div class="category-grid">
@@ -524,7 +524,7 @@
         </div>
     </section>
 
-    <!-- ====== МОДАЛЬНОЕ ОКНО С ФОРМОЙ ЗАКАЗА ====== -->
+    
     <div class="modal-overlay" id="orderModal">
         <div class="modal-window">
             <button class="modal-close" onclick="closeOrderForm()">&times;</button>
@@ -584,7 +584,7 @@
         </div>
     </div>
 
-    <!-- ====== ФУТЕР ====== -->
+    
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-logo">
@@ -618,14 +618,14 @@
 
     <script src="script.js"></script>
 
-    <!-- ====== СКРИПТ ДЛЯ ФОРМЫ ====== -->
+    
     <script>
-        // Открытие формы с предзаполненным продуктом
+        
         function openOrderForm(productName) {
             document.getElementById('orderModal').classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            // Если передан продукт, выбираем его в списке
+            
             if (productName) {
                 const select = document.getElementById('userProduct');
                 for (let i = 0; i < select.options.length; i++) {
@@ -636,37 +636,37 @@
                 }
             }
             
-            // Сбрасываем ошибки
+            
             document.querySelectorAll('.form-error').forEach(el => el.classList.remove('show'));
         }
 
-        // Закрытие формы
+        
         function closeOrderForm() {
             document.getElementById('orderModal').classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        // Закрытие по клику на фон
+        
         document.getElementById('orderModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeOrderForm();
             }
         });
 
-        // Закрытие по Escape
+        
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeOrderForm();
             }
         });
 
-        // Валидация и отправка формы
+        
         function submitForm(event) {
             event.preventDefault();
             
             let isValid = true;
             
-            // Проверка имени
+            
             const name = document.getElementById('userName');
             const nameError = document.getElementById('userNameError');
             if (!name.value.trim()) {
@@ -676,7 +676,7 @@
                 nameError.classList.remove('show');
             }
             
-            // Проверка телефона
+            
             const phone = document.getElementById('userPhone');
             const phoneError = document.getElementById('userPhoneError');
             if (!phone.value.trim()) {
@@ -686,7 +686,7 @@
                 phoneError.classList.remove('show');
             }
             
-            // Проверка email
+            
             const email = document.getElementById('userEmail');
             const emailError = document.getElementById('userEmailError');
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -697,7 +697,7 @@
                 emailError.classList.remove('show');
             }
             
-            // Проверка выбора продукта
+            
             const product = document.getElementById('userProduct');
             const productError = document.getElementById('userProductError');
             if (!product.value) {
@@ -707,7 +707,7 @@
                 productError.classList.remove('show');
             }
             
-            // Проверка согласия
+            
             const consent = document.getElementById('userConsent');
             const consentError = document.getElementById('userConsentError');
             if (!consent.checked) {
@@ -718,7 +718,7 @@
             }
             
             if (isValid) {
-                // Здесь можно добавить отправку формы на сервер
+                
                 alert('Спасибо! Ваш запрос отправлен. Мы свяжемся с вами в ближайшее время.');
                 closeOrderForm();
                 document.getElementById('orderForm').reset();
