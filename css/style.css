@@ -173,7 +173,7 @@ img {
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 250px;
     align-items: center;
 }
 
