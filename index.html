@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style_index.css">
-</head>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=C3X6QzGsN-X_dPBaB1gTwbwhCL4G3eJLGon4wHlNRPEF3ye2wIsS2OwtgoyH3cQOGQ2q1fVUB_XY0wnvoAXf2ZcdoUZl7lG-poyx3lQmLnd7TxgfPfKsA7kzTXiMN907jIKpYW-4YUlBB3EFo43dzJHqnkoHkdHuFbW-yTPFobwU5xnlgexh8NKCUag3HLpOFnrLVs3AsUAsRC5KCMFaXfFbXAPL3fNdbcBFy9qg-_AJ2J-242H4U64Cl2CRdJDYQwfYzGadM7l0ohp4GwuRig" charset="UTF-8"></script></head>
 <body>
     <script>
             function smoothScroll(event, targetId) {
@@ -40,20 +41,15 @@
             </button>
         </nav>
     </header>
-
+ 
 <section class="overview-carousel" id="overview">
-        <div class="container oc-heading">
-            <h2 class="section-title">Коротко <span class="highlight">обо всём</span></h2>
-            <p class="section-subtitle">Пролистайте — и узнайте главное о каждом направлении нашей работы</p>
-        </div>
-
         <div class="oc-carousel" id="ocCarousel">
             <div class="oc-intro-anim" id="ocIntroAnim">
                 <img src="imajes/intro-badge.png" alt="" class="oc-intro-badge">
                 <img src="imajes/intro-banner.png" alt="" class="oc-intro-banner">
             </div>
             <div class="oc-track" id="ocTrack">
-
+ 
                 <article class="oc-slide oc-slide--a">
                     <div class="container oc-slide-content">
                         <div class="oc-slide-text">
@@ -71,7 +67,7 @@
                         <div class="oc-slide-icon-wrap"><i class="fas fa-shield-halved"></i></div>
                     </div>
                 </article>
-
+ 
                 <article class="oc-slide oc-slide--b">
                     <div class="container oc-slide-content">
                         <div class="oc-slide-text">
@@ -89,7 +85,7 @@
                         <div class="oc-slide-icon-wrap"><i class="fas fa-layer-group"></i></div>
                     </div>
                 </article>
-
+ 
                 <article class="oc-slide oc-slide--a">
                     <div class="container oc-slide-content">
                         <div class="oc-slide-text">
@@ -107,7 +103,7 @@
                         <div class="oc-slide-icon-wrap"><i class="fas fa-handshake"></i></div>
                     </div>
                 </article>
-
+ 
                 <article class="oc-slide oc-slide--b">
                     <div class="container oc-slide-content">
                         <div class="oc-slide-text">
@@ -125,7 +121,7 @@
                         <div class="oc-slide-icon-wrap"><i class="fas fa-diagram-project"></i></div>
                     </div>
                 </article>
-
+ 
                 <article class="oc-slide oc-slide--a">
                     <div class="container oc-slide-content">
                         <div class="oc-slide-text">
@@ -143,12 +139,12 @@
                         <div class="oc-slide-icon-wrap"><i class="fas fa-certificate"></i></div>
                     </div>
                 </article>
-
+ 
             </div>
-
+ 
             <button class="oc-arrow oc-prev" id="ocPrev" aria-label="Предыдущий слайд"><i class="fas fa-chevron-left"></i></button>
             <button class="oc-arrow oc-next" id="ocNext" aria-label="Следующий слайд"><i class="fas fa-chevron-right"></i></button>
-
+ 
             <div class="oc-dots" id="ocDots"></div>
             <div class="oc-progress"><div class="oc-progress-bar" id="ocProgressBar"></div></div>
         </div>
@@ -237,7 +233,7 @@
                         <span>№ Л024-00107-77/00822575</span>
                     </div>
                 </div>
-
+ 
                 <div class="about-badge2">
                     <img src="imajes/fsb_logo.png" alt="Эмблема ФСБ" class="fsb-logo">
                     <div class="license-text">
@@ -248,7 +244,7 @@
             </div>
         </div>
     </section>
-
+ 
     
     <section class="solutions" id="solutions">
         <div class="container">
@@ -398,24 +394,24 @@
             </div>
         </div>
     </footer>
-
+ 
     <script src="js/script.js"></script>
     <script src="js/script_smooth.js"></script>
     <script>
         (function () {
             const carousel = document.getElementById('ocCarousel');
             if (!carousel) return;
-
+ 
             const track = document.getElementById('ocTrack');
             const slides = Array.from(track.children);
             const dotsWrap = document.getElementById('ocDots');
             const prevBtn = document.getElementById('ocPrev');
             const nextBtn = document.getElementById('ocNext');
             const progressBar = document.getElementById('ocProgressBar');
-
+ 
             let index = 0;
             const AUTOPLAY_MS = 5500;
-
+ 
             slides.forEach((_, i) => {
                 const dot = document.createElement('button');
                 dot.className = 'oc-dot' + (i === 0 ? ' active' : '');
@@ -424,40 +420,40 @@
                 dotsWrap.appendChild(dot);
             });
             const dots = Array.from(dotsWrap.children);
-
+ 
             function render() {
                 track.style.transform = `translateX(-${index * 100}%)`;
                 dots.forEach((d, i) => d.classList.toggle('active', i === index));
                 slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
             }
-
+ 
             function goTo(i) {
                 index = (i + slides.length) % slides.length;
                 render();
                 startProgress();
             }
-
+ 
             function next() { goTo(index + 1); }
             function prev() { goTo(index - 1); }
-
+ 
             function startProgress() {
                 progressBar.classList.remove('running');
                 void progressBar.offsetWidth;
                 progressBar.style.animationDuration = AUTOPLAY_MS + 'ms';
                 progressBar.classList.add('running');
             }
-
+ 
             progressBar.addEventListener('animationend', next);
-
+ 
             nextBtn.addEventListener('click', next);
             prevBtn.addEventListener('click', prev);
-
+ 
             carousel.setAttribute('tabindex', '0');
             carousel.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowRight') next();
                 if (e.key === 'ArrowLeft') prev();
             });
-
+ 
             let touchStartX = null;
             track.addEventListener('touchstart', (e) => {
                 touchStartX = e.touches[0].clientX;
@@ -469,12 +465,12 @@
                 else if (delta < -40) next();
                 touchStartX = null;
             });
-
+ 
             render();
-
+ 
             const introAnim = document.getElementById('ocIntroAnim');
             const INTRO_DURATION = 4200; 
-
+ 
             if (introAnim && 'IntersectionObserver' in window) {
                 const io = new IntersectionObserver((entries) => {
                     entries.forEach((entry) => {
