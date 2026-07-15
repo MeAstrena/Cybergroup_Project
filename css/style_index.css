@@ -195,17 +195,24 @@
 @media (max-width: 768px) {
     .about-badge {
         max-width: 250px;
+        max-height: 300px;
         padding: 20px 15px;
     }
 
     .about-badge2 {
         max-width: 250px;
+        max-height: 300px;
         padding: 20px 15px;
     }
 
     .fstek-embl {
-        width: 60px;
-        height: 60px;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 12px;
+    }
+    .fsb-logo {
+        width: 100px;
+        height: 100px;
         margin-bottom: 12px;
     }
 
@@ -215,6 +222,12 @@
 
     .license-text span {
         font-size: 0.85rem;
+    }
+}
+@media (max-width: 768px) {
+    .about-image {
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
