@@ -113,6 +113,124 @@
     flex-shrink: 0;
 }
 
+.about-image {
+    max-width: 700px; 
+    max-height:600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; 
+}
+
+.about-badge {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-end; 
+    background: #fff;
+    top:0px;
+    bottom:0px;
+    padding: 25px 20px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 119, 190, 0.15);
+    border: 1px solid rgba(0, 119, 190, 0.2);
+    max-width: 250px; 
+    max-height:500px;
+    text-align: center; 
+
+}
+
+.about-badge2 {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+    background: #ffffff;
+    top:0px;
+    bottom:0px;
+    padding: 25px 20px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 119, 190, 0.15);
+    border: 1px solid rgba(0, 119, 190, 0.2);
+    max-width: 250px; 
+    max-height:500px; 
+    text-align: center; 
+}
+
+
+.fstek-embl {
+    width: 190px; 
+    height: 190px; 
+    object-fit: contain;
+
+    display: block;
+}
+
+.fsb-logo {
+    width: 190px; 
+    height: 180px; 
+    object-fit: contain;
+    margin-bottom: 15px; 
+    display: block;
+}
+.license-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px; 
+}
+
+.license-text strong {
+    font-size: 1.1rem; 
+    color: #333;
+    font-weight: 700;
+}
+
+.license-text span {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .about-badge {
+        max-width: 250px;
+        max-height: 300px;
+        padding: 20px 15px;
+    }
+
+    .about-badge2 {
+        max-width: 250px;
+        max-height: 300px;
+        padding: 20px 15px;
+    }
+
+    .fstek-embl {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 12px;
+    }
+    .fsb-logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 12px;
+    }
+
+    .license-text strong {
+        font-size: 1rem;
+    }
+
+    .license-text span {
+        font-size: 0.85rem;
+    }
+}
+@media (max-width: 768px) {
+    .about-image {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
 @media (max-width: 992px) {
     .solutions-grid {
         grid-template-columns: repeat(4, 1fr);
