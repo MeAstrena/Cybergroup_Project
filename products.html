@@ -26,7 +26,7 @@
                 <li><a href="projects.html">Проекты</a></li>
                 <li><a href="about.html">О нас</a></li>
             </ul>
-            <a href="index.html#contact" class="btn-primary">Связаться</a>
+            <a href="index.html?scroll=contact" class="btn-primary">Связаться</a>
             <button class="menu-toggle" aria-label="Меню">
                 <i class="fas fa-bars"></i>
             </button>
@@ -51,7 +51,7 @@
                         </div>
                         <h4>Продукты Kaspersky</h4>
                         <span class="product-tag">Антивирус</span>
-                        <button class="btn-buy" onclick="openOrderForm('Антивирусные решения Лаборатории Касперского')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('Антивирусные решения Лаборатории Касперского')">Оставить заявку</button>
                     </div>
 
                     <div class="product-card">
@@ -61,7 +61,7 @@
                         </div>
                         <h4>Продукты Dr.Web</h4>
                         <span class="product-tag">Антивирус</span>
-                        <button class="btn-buy" onclick="openOrderForm('Антивирусные решения Dr. Web')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('Антивирусные решения Dr. Web')">Оставить заявку</button>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                         </div>
                         <h4>Линейка решений Secret Net</h4>
                         <span class="product-tag">СЗИ</span>
-                        <button class="btn-buy" onclick="openOrderForm('СЗИ Secret Net')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('СЗИ Secret Net')">Оставить заявку</button>
                     </div>
 
                     <div class="product-card">
@@ -87,7 +87,7 @@
                         </div>
                         <h4>Линейка решений Dallas Lock</h4>
                         <span class="product-tag">СЗИ</span>
-                        <button class="btn-buy" onclick="openOrderForm('СЗИ Dallas Lock')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('СЗИ Dallas Lock')">Оставить заявку</button>
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                         </div>
                         <h4>Продукция ViPNet</h4>
                         <span class="product-tag">Крипто</span>
-                        <button class="btn-buy" onclick="openOrderForm('СКЗИ VipNet')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('СКЗИ VipNet')">Оставить заявку</button>
                     </div>
 
                     <div class="product-card">
@@ -113,7 +113,7 @@
                         </div>
                         <h4>Континент АП</h4>
                         <span class="product-tag">Крипто</span>
-                        <button class="btn-buy" onclick="openOrderForm('СКЗИ Континент')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('СКЗИ Континент')">Оставить заявку</button>
                     </div>
 
                     <div class="product-card">
@@ -123,7 +123,7 @@
                         </div>
                         <h4>Крипто Про</h4>
                         <span class="product-tag">Крипто</span>
-                        <button class="btn-buy" onclick="openOrderForm('Решения КриптоПро')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('Решения КриптоПро')">Оставить заявку</button>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                         </div>
                         <h4>Base Alt</h4>
                         <span class="product-tag">ОС Linux</span>
-                        <button class="btn-buy" onclick="openOrderForm('ОС Linux')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('ОС Base Alt Linux')">Оставить заявку</button>
                     </div>
 
                     <div class="product-card">
@@ -149,7 +149,7 @@
                         </div>
                         <h4>Astra Linux</h4>
                         <span class="product-tag">ОС Linux</span>
-                        <button class="btn-buy" onclick="openOrderForm('ОС Linux')">Купить</button>
+                        <button class="btn-buy" onclick="openOrderForm('ОС Astra Linux')">Оставить заявку</button>
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@
     <div class="modal-overlay" id="orderModal">
         <div class="modal-window">
             <button class="modal-close" onclick="closeOrderForm()">&times;</button>
-            <h2>Форма заказа</h2>
+            <h2>Заявка на услугу</h2>
             <p class="modal-subtitle">Заполните форму, и мы свяжемся с вами для оформления заказа</p>
 
             <form id="orderForm" onsubmit="submitForm(event)">
@@ -193,7 +193,8 @@
                         <option value="СКЗИ VipNet">СКЗИ VipNet</option>
                         <option value="СКЗИ Континент">СКЗИ Континент</option>
                         <option value="Решения КриптоПро">Решения КриптоПро</option>
-                        <option value="ОС Linux">ОС Linux</option>
+                        <option value="ОС Base Alt Linux">ОС Base Alt Linux</option>
+                        <option value="ОС Astra Linux">ОС Astra Linux</option>
                     </select>
                     <div class="form-error" id="userProductError">Пожалуйста, выберите продукт</div>
                 </div>
@@ -248,7 +249,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/script_smooth.js"></script>
 
     
     <script>

@@ -11,22 +11,30 @@
     <link rel="stylesheet" href="css/style_index.css">
 </head>
 <body>
-
+    <script>
+            function smoothScroll(event, targetId) {
+                event.preventDefault(); // Отменяем стандартное поведение ссылки
+                const targetElement = document.getElementById(targetId); // Находим целевой элемент
+                targetElement.scrollIntoView({
+                    behavior: 'smooth' // Устанавливаем плавный переход
+                });
+            }
+        </script>
     
     <header class="header">
         <nav class="container nav">
             <a href="index.html" class="logo">
-                <img src="imajes/logotipblue.png" alt="Cyber Group" style="height: 45px;">
+                <img src="imajes/logotipblue.png" alt="Cyber Group" style="height: 45px;" onclick="smoothScroll(event, 'home')">
             </a>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="index.html" class="active" onclick="smoothScroll(event, 'home')">Главная</a></li>
                 <li><a href="services.html">Услуги</a></li>
                 <li><a href="products.html">Решения</a></li>
                 <li><a href="partners.html">Партнёры</a></li>
                 <li><a href="projects.html">Проекты</a></li>
                 <li><a href="about.html">О нас</a></li>
             </ul>
-            <a href="index.html#contact" class="btn-primary">Связаться</a>
+            <a href="index.html" class="btn-primary" onclick="smoothScroll(event, 'contact')">Связаться</a>
             <button class="menu-toggle" aria-label="Меню">
                 <i class="fas fa-bars"></i>
             </button>
@@ -43,8 +51,9 @@
                 <div class="hero-buttons">
                     <a href="services.html" class="btn-primary">Наши услуги</a>
                     <a href="about.html" class="btn-secondary">О компании</a>
+                    <a href="about.html?scroll=licenses-block" class="btn-secondary">Лицензии</a>
                 </div>
-                <div class="hero-features">
+<!--                <div class="hero-features">
                     <div class="feature">
                         <i class="fas fa-shield-halved"></i>
                         <span>Лицензия ФСТЭК</span>
@@ -61,7 +70,7 @@
                         <i class="fas fa-headset"></i>
                         <span>Поддержка 24/7</span>
                     </div>
-                </div>
+                </div>-->
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">1000+</span>
@@ -78,7 +87,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="imajes/hero-illustration.png" alt="Информационная безопасность" class="hero-illustration" onerror="this.style.display='none'">
+                <img src="imajes/палец.png" alt="Информационная безопасность" class="hero-illustration" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
@@ -297,6 +306,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/script_smooth.js"></script>
 </body>
 </html>
