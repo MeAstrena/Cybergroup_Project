@@ -11,7 +11,15 @@
     <link rel="stylesheet" href="css/style_index.css">
 </head>
 <body>
-
+    <script>
+            function smoothScroll(event, targetId) {
+                event.preventDefault(); // Отменяем стандартное поведение ссылки
+                const targetElement = document.getElementById(targetId); // Находим целевой элемент
+                targetElement.scrollIntoView({
+                    behavior: 'smooth' // Устанавливаем плавный переход
+                });
+            }
+        </script>
     
     <header class="header">
         <nav class="container nav">
@@ -43,7 +51,7 @@
                 <div class="hero-buttons">
                     <a href="services.html" class="btn-primary">Наши услуги</a>
                     <a href="about.html" class="btn-secondary">О компании</a>
-                    <a href="about.html" class="btn-secondary">Лицензии</a>
+                    <a href="about.html?scroll=licenses-block" class="btn-secondary">Лицензии</a>
                 </div>
 <!--                <div class="hero-features">
                     <div class="feature">
