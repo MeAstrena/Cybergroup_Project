@@ -283,6 +283,11 @@
         max-height: 35px;
     }
 }
+.hero p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            text-align: center; 
+        }
 
 .oc-intro-anim {
     position: absolute;
