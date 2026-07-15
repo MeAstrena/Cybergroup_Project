@@ -283,3 +283,87 @@
         max-height: 35px;
     }
 }
+
+.oc-intro-anim {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    z-index: 50;
+    opacity: 1;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8edf5 100%);
+}
+
+.oc-intro-anim.play {
+    animation: ocIntroWrapperOut 600ms ease forwards;
+    animation-delay: 3600ms;
+}
+
+.oc-intro-badge,
+.oc-intro-banner {
+    position: absolute;
+    height: auto;
+    opacity: 0;
+    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.12));
+}
+
+.oc-intro-badge {
+    width: 260px;           
+}
+
+.oc-intro-banner {
+    width: 680px;           
+    max-width: 80%;
+}
+
+.oc-intro-anim.play .oc-intro-badge {
+    animation: ocIntroBadge 1300ms ease forwards;
+}
+
+.oc-intro-anim.play .oc-intro-banner {
+    animation: ocIntroBanner 800ms ease forwards;
+    animation-delay: 1300ms;
+}
+
+@keyframes ocIntroBadge {
+    0%      { opacity: 1; transform: scale(1); }
+    38.46%  { opacity: 1; transform: scale(1); }      
+    50%     { opacity: 1; transform: scale(1.4); }     
+    61.54%  { opacity: 1; transform: scale(1); }       
+    100%    { opacity: 0; transform: scale(0); }       
+}
+
+@keyframes ocIntroBanner {
+    from { opacity: 0; transform: scale(0); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ocIntroWrapperOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+
+@media (max-width: 768px) {
+    .oc-intro-badge {
+        width: 180px;      
+    }
+
+    .oc-intro-banner {
+        width: 460px;     
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .oc-intro-badge {
+        width: 140px;      
+    }
+
+    .oc-intro-banner {
+        width: 320px;       
+        max-width: 90%;
+    }
+}
