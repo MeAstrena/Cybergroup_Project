@@ -289,6 +289,9 @@
             text-align: center; 
         }
 
+
+/* ===== Обзорная карусель (полноэкранная, во всю ширину браузера) ===== */
+
 .overview-carousel {
     background: #fff;
 }
@@ -616,12 +619,12 @@
     pointer-events: auto;
     z-index: 50;
     opacity: 1;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e8edf5 100%);
+    background: #fff;
 }
 
 .oc-intro-anim.play {
-    animation: ocIntroWrapperOut 600ms ease forwards;
-    animation-delay: 3600ms;
+    animation: ocIntroWrapperOut 900ms ease forwards;
+    animation-delay: 5300ms;
 }
 
 .oc-intro-badge,
@@ -629,6 +632,7 @@
     position: absolute;
     height: auto;
     opacity: 0;
+    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.12));
 }
 
 .oc-intro-badge {
@@ -641,12 +645,12 @@
 }
 
 .oc-intro-anim.play .oc-intro-badge {
-    animation: ocIntroBadge 1300ms ease forwards;
+    animation: ocIntroBadge 2000ms ease forwards;
 }
 
 .oc-intro-anim.play .oc-intro-banner {
-    animation: ocIntroBanner 800ms ease forwards;
-    animation-delay: 1300ms;
+    animation: ocIntroBanner 1100ms ease forwards;
+    animation-delay: 2000ms;
 }
 
 @keyframes ocIntroBadge {
