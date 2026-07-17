@@ -289,9 +289,6 @@
             text-align: center; 
         }
 
-
-/* ===== Обзорная карусель (полноэкранная, во всю ширину браузера) ===== */
-
 .overview-carousel {
     background: #fff;
 }
@@ -632,7 +629,7 @@
     position: absolute;
     height: auto;
     opacity: 0;
-    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.12));
+    /*filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.12)); */
 }
 
 .oc-intro-badge {
