@@ -33,7 +33,7 @@
 Сайт успешно сдан в эксплуатацию. Мои разделы прошли проверку QA-инженера без критических замечаний.
 
 ## Ссылка на сайт
-[Cyber Group](https://cybergroup.ru)
+[Cyber Group](https://meastrena.github.io/Cybergroup_Project/)
 
 ## Период работы
 Июль 2026
